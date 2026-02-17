@@ -244,12 +244,13 @@ function renderLogs() {
 function logHours() {
     let hours = prompt("Wie viele Stunden?");
     let hausIndex = prompt("Haus wählen:\n" + häuser.map((h,i)=> i + 1+": " + h).join("\n"));
+    let index = hausIndex -1;
 
     if(hours && hausIndex !== null){
         let logs = JSON.parse(localStorage.getItem("logs")) || [];
 
         logs.push({
-            haus: häuser[hausIndex],
+            haus: häuser[index],
             hours: parseFloat(hours)
         });
 
@@ -272,7 +273,4 @@ window.onload = loadData;
 
 </script>
 </body>
-
 </html>
-
-
